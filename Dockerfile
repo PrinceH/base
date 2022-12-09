@@ -16,3 +16,4 @@ RUN cd /tmp && git clone -b newnew  --depth 1 https://github.com/QingdaoU/Judger
     apt-get clean && rm -rf /var/lib/apt/lists/* && \
     mkdir -p /code && \
     useradd -u 12001 compiler && useradd -u 12002 code && useradd -u 12003 spj && usermod -a -G code spj
+CMD ["bash"]
