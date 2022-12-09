@@ -11,9 +11,5 @@ RUN apt-get update && apt-get install -y golang-go openjdk-11-jdk nodejs gcc-9 g
         update-alternatives --install  /usr/bin/g++ g++ /usr/bin/g++-9 40 && \
         pip3 install -i https://mirrors.aliyun.com/pypi/simple/ -I --no-cache-dir psutil gunicorn flask requests idna
 RUN cd /tmp && git clone -b newnew  --depth 1 https://github.com/QingdaoU/Judger.git && cd Judger && \
-    mkdir build && cd build && cmake .. && make && make install && cd ../bindings/Python && python3 setup.py install && \
-    apt-get purge -y --auto-remove $buildDeps && \
-    apt-get clean && rm -rf /var/lib/apt/lists/* && \
-    mkdir -p /code && \
-    useradd -u 12001 compiler && useradd -u 12002 code && useradd -u 12003 spj && usermod -a -G code spj
+    mkdir build && cd build && cmake .. && make && make install && cd ../bindings/Python && python3 setup.py install
 CMD ["bash"]
